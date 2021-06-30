@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 메타 정보 -->
+    <!-- 바로가기 아이콘 -->
+    <!-- 오픈그래프 -->
+    <!-- 폰트 파일 임포트(link태그) -->
+    <!-- html5shiv.js 연결 -->
+    <!-- 스타일 초기화 -->
+    <!-- jQuery 연결 -->
+    <title>판도라</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="./images/favicon.png"
+    sizes="16*16"><!-- 일반 메타포 아이콘 연결 -->
+    <link rel="apple-touch-icon" href="./images/favicon96.png"
+    sizes="96*96"><!-- 아이폰에서의 연결 -->
+    <link rel="icon" href="./images/favicon192.png" sizes="192*192">
+    <!-- 안드로이드폰에서의 연결 -->
+    <meta name="title" content="판도라">
+    <meta name="description" content="주얼리, 참, 팔찌, 반지, 귀걸이 등을
+    생산하여 공급하는 쇼핑몰입니다.">
+    <meta name="keywords" content="주얼리, 참, 팔찌, 반지, 귀걸이">
+    <meta name="subject" content="정수기, 임대, 매매">                           
+    <meta property="og:type" content="website">
+    <meta property="og:url" 
+    content="http://chio0319.github.io/web1">
+    <meta property="og:title" content="판도라">
+    <meta property="og:image"
+    content="./imges/visul2.jpg">
+    <meta property="og:description" content="주얼리, 참, 팔찌, 반지, 귀걸이 등을 생산하여 공급하는 쇼핑몰입니다.">
+    <meta property="og:site_name" content="주얼리, 참, 팔찌, 반지, 귀걸이">
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="font.css">
+    <link rel="preconnect" href="">
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109283150-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-109283150-1');
+    </script>
+    <style>
+        /* 스타일 초기화 */
+        * { margin: 0; padding: 0; }
+        body, html { width: 100%; font-family: 'nsk'; }
+        ul { list-style: none; }
+        a { text-decoration: none; }
+        input, button { outline: 0; border: 0; }
+    </style>
+    <style>
+        body { background-image: url(); background-repeat: repeat-x; }
+        .container { clear: both; width: 100%; }
+        #all_menu { position: fixed; left: 0; top: -100vh; width: 100vw;
+            height: 100vh; z-index: 90; background-color: rgba(255,255,255,0.95); transition-duration: 0.6s; opacity: 0; visibility: hidden; }
+        #ck1:checked ~ #all_menu { top: 0; opacity: 1; visibility: visible; }
+        .menu_fr { width: 1440px; margin: 0 auto; padding-top: 130px; }
+        .menu_fr li.cate { width: 25%; float: left; }
+        .menu_fr li.cate .dp2 li { line-height: 1.8; border-left: 1px solid #999; padding-left: 24px; }
+        .menu_fr li.cate .dp2 li.dp2_tit { border-left: 0; padding-left: 0; padding-top: 0; font-size: 16px; font-weight: 600; }
+        .menu_fr li.cate .dp2 li a { color: #333; font-size: 14px; }
+        .menu_fr li.cate .dp2 li a:hover { color: #333; font-weight: 600; }
+        
+        #search_form { position: fixed; left: 0; top: 125px; width: 100vw; height: 0px; z-index: 90; background-color: rgba(240,240,240,0.95); transition-duration: 0.6s; overflow: hidden; }
+        .search_fr { width: 1000px; margin: 0 auto; position: relative; padding-top: 60px; }
+        .search_fr fieldset { border: 0; outline: 0; }
+        #keywords { display: block; width: 1000px; height: 60px; border: none; outline: 0; border-bottom: 2px solid #333; text-indent: 14px; font-size: 20px; background-color: transparent; }
+        #search_btn {display: block; border-color: transparent; text-indent: -9999px; width: 60px; height: 60px; background-image: url(./images/icon_search.png); background-position: center center; background-repeat: no-repeat; position: absolute; right: 0; top: 60px; cursor: pointer; }
+        #ck2:checked ~ #search_form { height: 40vh; }
+        .hash_fr a {display: block; line-height: 20px; padding: 5px 12px ; color: #333; border: 1px solid #ccc; background-color: #eee; font-size: 16px; border-radius: 16px; float: left; margin-right: 18px; margin-bottom: 18px; }
+        .hash_fr a:hover { color: brown; border-color: brown; }
+        .hash_tit { padding-top: 50px; padding-bottom: 20px; }
+        
+        .ck { display: none; }
+        .hd { clear: both; width: 100%; height: 125px; background-color: #fff; border-bottom: 1px solid #ccc; position: fixed; top: 0; left: 0; z-index: 91; }
+        .hd_wrap { clear: both; width: 1440px; height: 50px; border-bottom: 1px solid #ccc; margin: 0 auto; position: relative; }
+        .top1 { float: left; margin-top: 5px; }
+        .top1 li { float: left; margin-right: 4px; }
+        .top1 li a { display: block; width: 36px; height: 36px; text-align: center; padding-top: 5px; }
+        .menu_call_btn { display: block; width: 22px; height: 22px; padding: 7px; cursor: pointer; }
+        .menu_call_btn span { display: block; width: 22px; height: 2px; background-color: #333; margin-bottom: 6px; }
+        .search_call_btn { display: block; width: 36px; height: 36px; background-image: url(./images/icon_search.png); background-position: center center; background-repeat: no-repeat; text-indent: -9999px; cursor: pointer; }
+        .logo { display: block; width: 140px; height: 26px; background-image: url(./images/logo2.png); background-position: center center; background-repeat: no-repeat; position: absolute; top: 12px; left: 50%; margin-left: -70px; text-indent: -9999px; }
+        .lang { float: right; margin-top: 5px; }
+        .lang a { display: block; float: left; padding: 5px 12px; color: #888; font-weight: 600; bottom: 2px solid transparent; border-radius: 20px; }
+        .lang a.cur_lang { color: #333; bottom: 2px solid #ccc; }
+        
+        #gnb { clear: both; width: 1440px; margin: 0 auto; }
+        #gnb > ul > li { float: left; width: 25%; text-align: center; line-height: 84px; }
+        #gnb li a.dp1 { color: #000; display: block; line-height: 78px; border-bottom: 3px solid transparent; font-weight: 400; font-size: 20px; letter-spacing: -1px; height: 70px; }
+        #gnb li:hover a.dp1 { color: #333; font-weight: 600; border-bottom: 3px solid #333; }
+        .sub { /* opacity:0; visibillity:hidden; */ transition-duration: 0.6s; width: 100vw; position: absolute; left: 0; top: 125px; height: 0; overflow: hidden; background-color: #eee; }
+        #gnb li:hover .sub { opacity: 1; visibility: visible; }
+        #gnb li:hover .sub.item1 { min-height: 60vw; padding-left: 13vw; }
+        #gnb li .sub.item1 ul { float: left; width: 180px; margin-right: 25px; text-align: left; }
+        #gnb li .sub.item1 ul li { line-height: 36px; padding-top: 15px; }
+        #gnb li .sub.item1 ul li.menu_tit { padding-top: 30px; line-height: 44px; border-bottom: 1px solid #333; }
+        #gnb li .sub.item1 ul li a { color: #777; }
+        #gnb li .sub.item1 ul li a:hover { color: #333; font-weight: 600; }
+        
+        #gnb li:hover .sub.item2 { min-height: 60vw; padding-left: 25vw; }
+        #gnb li .sub.item2 ul { float: left; width: 180px; margin-right: 25px; text-align: left; }
+        #gnb li .sub.item2 ul li { line-height: 36px; padding-top: 15px; }
+        #gnb li .sub.item2 ul li.menu_tit { padding-top: 30px; line-height: 44px; border-bottom: 1px solid #333; }
+        #gnb li .sub.item2 ul li a { color: #777; }
+        #gnb li .sub.item2 ul li a:hover { color: #333; font-weight: 600; }
+        
+        #gnb li:hover .sub.item3 { min-height: 60vw; padding-left: 45vw; }
+        #gnb li .sub.item3 ul { float: left; width: 180px; margin-right: 25px; text-align: left; }
+        #gnb li .sub.item3 ul li { line-height: 36px; padding-top: 15px; }
+        #gnb li .sub.item3 ul li.menu_tit { padding-top: 30px; line-height: 44px; border-bottom: 1px solid #333; }
+        #gnb li .sub.item3 ul li a { color: #777; }
+        #gnb li .sub.item3 ul li a:hover { color: #333; font-weight: 600; }
+        
+        #gnb li:hover .sub.item4 { min-height: 60vw; padding-left: 75vw; }
+        #gnb li .sub.item4 ul { float: left; width: 180px; margin-right: 25px; text-align: left; }
+        #gnb li .sub.item4 ul li { line-height: 36px; padding-top: 15px; }
+        #gnb li .sub.item4 ul li.menu_tit { padding-top: 30px; line-height: 44px; border-bottom: 1px solid #333; }
+        #gnb li .sub.item4 ul li a { color: #777; }
+        #gnb li .sub.item4 ul li a:hover { color: #333; font-weight: 600; }
+        
+        #gnb li:hover .sub.item5 { height: 80px; padding-left: 58vw; }
+        #gnb li .sub.item5 li { float: left; margin-right: 30px; }
+        #gnb li .sub.item5 li { float: left; margin-right: 30px; }
+        
+        .ft { clear: both; width: 100%; height: 200px; background-color: #f5f5f5;  color: #fff; padding-top: 30px; }
+        .ft_wrap { width: 1440px; margin: 0 auto; }
+        .ft_box .col1, .ft_box .col2 { float: left; }
+        .ft_box .col2 { padding-left: 60px; }
+        .ft_box .col3 { float: right; position: relative; height: 200px; }
+        .linkbar { padding-top: 20px; padding-bottom: 30px; }
+        .linkbar a { color: #000; padding-right: 20px; font-size: 14px; }
+        .linkbar a:hover { color: #bbb; }
+        .linkbar a:after { content: "|"; padding-left: 25px; }
+        .linkbar a:last-child::after { content: ""; }
+        .addr { font-size: 14px; padding-bottom: 20px; color: #000; }
+        .copyright { font-size: 14px; color: #000; }
+        .sns_link a { display: block; width: 40px; height: 40px; background-position: center center; background-repeat: no-repeat; float: left; margin-left: 15px; }
+        .sns_link a.utb_ico { background-image: url(); }
+        .sns_link a.insta_ico { background-image: url(); }
+        .sns_link a.face_ico { background-image: url(); }
+        .sns_link a.utb_ico:hover { background-image: url(); }
+        .sns_link a.insta_ico:hover { background-image: url(); }
+        .sns_link a.face_ico:hover { background-image: url(); }
+        
+        #sel { display: block; width: 150px; line-height: 44px; font-size: 16px; height: 44px; position: absolute; bottom: 10px; right: 0; }
+        
+        .page_tit { text-align: center; font-size: 42px; line-height: 1.6; padding-top: 1.6em; }
+        .none_tit { display: none; }
+    </style>
+    <style>
+        .content { padding-top: 180px; clear: both; width: 100%; }
+        .vs { width: 1200px; height: 657px; position: relative; margin: 0 auto; }
+        .vs .img_box { 1200px; height: 657px; overflow: hidden; }
+        .vs .img_fr { width: 200%; transition-duration: 0.6s; }
+        .vs .img_fr li { width: 50%; float: left; }
+        #ra1:checked ~ .img_box .img_fr { margin-left: 0; }
+        #ra2:checked ~ .img_box .img_fr { margin-left: -1200px; }
+        
+        .ra { display: none; }
+        .arr_box li { display: none; }
+        #ra1:checked ~ .arr_box li:first-child { display: block; }
+        #ra2:checked ~ .arr_box li:nth-child(2) { display: block; }
+        
+        .arr_box label { display: block; background-color: transparent; width: 30px; height: 50px;  background-image: url(./images/slide_arrow.png); background-position: center center; background-repeat: no-repeat; position: absolute; top: 42%; cursor: pointer; z-index: 10; }
+        .arr_box .prev_btn { left: -10%; transform: rotate(180deg); }
+        .arr_box .next_btn { right: -10%; }
+        
+        .arr_box li:first-child .prev_btn { display: none; }
+        .arr_box li:last-child .next_btn { display: none; }
+        
+        .tit_box li { position: absolute; left: -100px; bottom: 35px; z-index: 20; width: 500px; height: 300px; background-color: transparent; }
+        .vs_tit { line-height: 1.3; padding-left: 36px; font-size: 32px; padding-top: 50px; }
+        .vs_com { padding-top: 18px; padding-left: 36px; }
+        .vs_arrow { display: block; width: 81px; height: 81px; background-image: url(./images/sec1_btn_more.png); background-position: center center; background-repeat: no-repeat; position: absolute; right: -30px; bottom: 40px; z-index: 30; display: none; cursor: pointer; }
+        
+        .tit_box li:first-child { background-color: rgba(255,255,255,1); border: 1px solid #ccc; }
+        
+        .tit_box li .vs_tit { opacity: 0; visibility: hidden; transition-duration: 0.6s; }
+        .tit_box .vs_com { opacity: 0; visibility: hidden; transition-duration: 0.6s; }
+        #ra1:checked ~ .tit_box li:first-child .vs_tit { opacity: 1; visibility: visible; }
+        #ra1:checked ~ .tit_box li:first-child .vs_com { opacity: 1; visibility: visible; }
+        #ra2:checked ~ .tit_box li:nth-child(2) .vs_tit { opacity: 1; visibility: visible; }
+        #ra2:checked ~ .tit_box li:nth-child(2) .vs_com { opacity: 1; visibility: visible; }
+        #ra1:checked ~ .tit_box li:first-child .vs_arrow { display: block; }
+        #ra2:checked ~ .tit_box li:nth-child(2) .vs_arrow { display: block; }
+        .vs_num_box { position: absolute; z-index: 30; top: 43.5%; right: -5%; font-size: 20px; font-weight: 500; }
+        .vs_num_box .cur_num { font-weight: 700; }
+        
+        .page { clear: both; width: 100%; }
+        #page1 { background-color: #f5f5f5; }
+        .page_wrap { clear: both; padding-top: 80px; width: 1440px; margin: 0 auto; }
+        .page_wrap:after { content: ""; display: block; clear: both; }
+        .page_tit:first-child { font-size: 32px; }
+        .page_com { text-align: center; padding-bottom: 60px; }
+        .lst_box1 { width: 1200px; margin: 0 auto; }
+        .lst_box1 li { width: 320px; margin-right: 120px; float: left; position: relative; height: 550px; margin-bottom: 100px; cursor: pointer; }
+        .lst_box1 li:nth-child(3n) { margin-right: 0; }
+        .lst_box li:last-child { margin-right: 0; }
+        .lst_box li img { display: block; width: 318px; height: 320px; }
+        .more { display: block; width: 64px; height: 64px; position: absolute; bottom: 0; right: 0; z-index: 10; background-image: url(); }
+        .lst_tit_box  { width: 318px; height: 200px; background-color: #b8c9d3; transition-duration: 0.5s; border: 1px solid #eee; }
+        .lst_box1 li:hover .lst_tit_box { opacity: 1; visibility: visible; left: 40px; 
+        }
+        .lst_tit { padding-top: 30px; text-align: center; }
+        .lst_com { padding-left: 30px; font-size: 14px; padding-right: 30px; text-align: center; }
+        .detail { position: absolute; bottom: 40px; right: 16px; color: #6d9bb2; text-decoration: underline; font-size: 13px; word-break: break-all; text-align: justify; }
+        
+        #page2 { background-image: url(); background-repeat: repeat-y; background-position: center top; min-height: 100vh; }
+        #page2 .page_wrap { min-height: 100vh; }
+        .lst_box2 { clear: both; width: 1440px; margin: 0 auto; position: relative; min-height: 100vh;}
+        .lst_box2 .ban_box1 { width: 50%; float: left; height: 100vh; padding-top: 150px; }
+        
+        .ban_box1 .box1 { clear: both; width: 100%; height: 40px; overflow: hidden; }
+        .ban_box1 .box1 .box1_fr { clear: both; width: 100%; height: 120px; transition-duration: 0.5s; }
+        .ban_box1 .box1 li { clear: both; height: 40px; }
+        .ban_box1 .box1 .ban_tit { font-size: 16px; line-height: 40px; height: 40px; padding-top: 0; }
+        .ban_box1 .box2 { padding-top: 20px; width: 500px; height: 500px; position: relative; overflow: hidden; }
+        .ban_box1 .box2 .box2_fr { width: 1500px; height: 500px; transition-duration: 0.5s; }
+        .ban_box1 .box2 .box2_fr li { float: left; width: 500px; height: 500px; }
+        .ban_box1 .box2 .box2_fr li img { display: block; width: 100%; height: auto; }
+        .ban_box1 .box3 { clear: both; width: 400px; height: 80px; padding-top: 20px; overflow: hidden; }
+        .ban_box1 .box3 .box3_fr { width: 1200px; height: 80px; position: relative; }
+        .ban_box1 .box3 .box3_fr li { width: 330px; height: 80px; float: left; padding-right: 70px; position: absolute; left: -400px; top: 0; transition: 0.5s; }
+        .ban_box1 .box3 .box3_fr li .ban_com { font-size: 14px; }
+        .ban_box1 .box4 { width: 250px; height: 64px; margin-top: 25px; clear: both; background-color: #000; position: relative; border: 1px solid #999; overflow: hidden; }
+        .ban_box1 .box4 .ban_more { display: block; width: 250px; height: 64px; line-height: 64px; background-image: url(./images/btn_black_arrow.png); background-repeat: no-repeat; background-position: 185px center; text-indent: 40px; color: #fff; position: absolute; top: 0; left: 0; z-index: 4; overflow: hidden; }
+        .ban_box1 .box4:before { content: ""; display: block; width: 250px; height: 64px; background-color: #fff; position: absolute; left: -250px; top: 0; z-index: 3; transition-duration: 0.5s; }
+        .ban_box1 .box4:hover .ban_more { background-image: url(./images/btn_black_arrow_on.png); color: #000; }
+        .ban_box1 .box4:hover::before { left: 0; }
+        
+        .lst_box2 .ban_box2 { width: 558px; float: right; height: 100vh; padding-top: 150px; padding-bottom: 150px; }
+        .lst_box2 .ban_box2 .box1 { width: 558px; height: 725px; clear: both; overflow: hidden; }
+        .lst_box2 .ban_box2 .box1 .box1_fr { width: 558px; height: 2400px; transition-duration: 1s; transition-delay: 0.4s; transition-timing-function: ease-out; }
+        .lst_box2 .ban_box2 .box1 li { width: 558px; height: 725px; clear: both; overflow: hidden; }
+        .lst_box2 .ban_box2 .box1 li img { display: block; width: 558px; height: 725px; transform: scale(2); transition-duration: 0.5s; }
+        .lst_box2 .ban_box2 .box2 { width: 580px; height: 40px; padding-top: 20px; overflow: hidden; }
+        .lst_box2 .ban_box2 .box2 .box2_fr { width: 1800px; height: 40px; transition: 0.5s; }
+        .lst_box2 .ban_box2 .box2 .box2_fr li { width: 580px; height: 40px; float: left; }
+        .lst_box2 .ban_box2 .box2 .box2_fr li .ban_com { font-weight: 600; font-size: 16px; }
+        .lst_box2 .ban_box3 label { display: block; width: 72px; height: 25vh; position: absolute; line-height: 72px; left: 50%; margin-left: -36px; z-index: 10; writing-mode : vertical-lr; font-size: 24px; font-weight: 700; cursor: pointer; border-left: 3px solid transparent; }
+        .lst_box2 .ban_box3 label.item1 { top: 12.5vh; }
+        .lst_box2 .ban_box3 label.item2 { top: 37.5vh; }
+        .lst_box2 .ban_box3 label.item3 { top: 62.5vh; }
+        
+        .ba { display: none; }
+        
+        #ba1:checked ~ .lst_box2 .ban_box1 .box1 .box1_fr { margin-top: 0; }
+        #ba2:checked ~ .lst_box2 .ban_box1 .box1 .box1_fr { margin-top: -40px; }
+        #ba3:checked ~ .lst_box2 .ban_box1 .box1 .box1_fr { margin-top: -80px; }
+        
+        #ba1:checked ~ .lst_box2 .ban_box1 .box2 .box2_fr { margin-left: 0; }
+        #ba2:checked ~ .lst_box2 .ban_box1 .box2 .box2_fr { margin-left: -500px; }
+        #ba3:checked ~ .lst_box2 .ban_box1 .box2 .box2_fr { margin-left: -1000px; }
+        #ba1:checked ~ .lst_box2 .ban_box1 .box3 .box3_fr { }
+        
+        #ba1:checked ~ .lst_box2 .ban_box1 .box3 .box3_fr li.item1 { left: 0; }
+        #ba2:checked ~ .lst_box2 .ban_box1 .box3 .box3_fr li.item2 { left: 0; }
+        #ba3:checked ~ .lst_box2 .ban_box1 .box3 .box3_fr li.item3 { left: 0; }
+        #ba1:checked ~ .lst_box2 .ban_box2 .box1 .box1_fr { margin-top: 0; }
+        #ba2:checked ~ .lst_box2 .ban_box2 .box1 .box1_fr { margin-top: -777px; }
+        #ba3:checked ~ .lst_box2 .ban_box2 .box1 .box1_fr { margin-top: -1554px; }
+        #ba1:checked ~ .lst_box2 .ban_box2 .box1 li.item1 img { transform: scale(1); }
+        #ba2:checked ~ .lst_box2 .ban_box2 .box1 li.item2 img { transform: scale(1); }
+        #ba3:checked ~ .lst_box2 .ban_box2 .box1 li.item3 img { transform: scale(1); }
+        #ba1:checked ~ .lst_box2 .ban_box2 .box2 .box2_fr { margin-left: 0; }
+        #ba2:checked ~ .lst_box2 .ban_box2 .box2 .box2_fr { margin-left: -580px; }
+        #ba3:checked ~ .lst_box2 .ban_box2 .box2 .box2_fr { margin-left: -1160px; }
+        
+        #ba1:checked ~ .lst_box2 .ban_box3 label.item1 { border-left: 3px solid #bbb; color: #bbb; }
+        #ba2:checked ~ .lst_box2 .ban_box3 label.item2 { border-left: 3px solid #bbb; color: #bbb; }
+        #ba3:checked ~ .lst_box2 .ban_box3 label.item3 { border-left: 3px solid #bbb; color: #bbb; }
+        
+        #page3 .page_wrap { padding-top: 0; }
+        #page3 .page_tit { margin-bottom: 50px; }
+        .lst_box3 { clear: both; width: 1300px; margin: 0 auto; }
+        .lst_box3 li { float: left; margin-right: 10px; }
+        .lst_box3 li.col1 { width: 427px; }
+        .lst_box3 li.col2 { width: 427px; }
+        .lst_box3 li.col3 { width: 318px; margin-right: 0; }
+        
+        .lst_box3 li.col1 .md_box { width: 427px; position: relative; }
+        .lst_box3 li .md_box a { display: block; }
+        .lst_box3 li.col1 .md_box a { height: 325px; margin-bottom: 10px; }
+        .lst_box3 li.col1 .md_box a:first-child { margin-top: 35px; }
+        
+        .lst_box3 li.col2 .md_box { width: 427px; }
+        .lst_box3 li .md_box a { display: block; }
+        .lst_box3 li.col2 .md_box a { display: block; height: 383px; margin-bottom: 10px; }
+        .lst_box3 li.col2 .md_box a img { display: block; width: 100%; }
+        
+        .lst_box3 li.col3 .md_box a:first-child { margin-top: 21px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="checkbox" id="ck1" class="ck">
+        <input type="checkbox" id="ck2" class="ck">
+        <input type="checkbox" id="pop_ck" class="ck" checked>
+        <div id="pop">
+            <article class="pop_fr">
+                <div class="left_fr">
+                    
+                </div>
+                <div class="right_fr">
+                    <label for="pop_ck" class="pop_close_btn"></label>
+                    <h3 class="pop_tit">
+                        
+                    </h3>
+                    <a href="">제품 바로가기</a>
+                </div>
+            </article>
+        </div>
+        <nav id="all_menu">
+            <ul class="menu_fr">
+                <li class="cate">
+                    <h2 class="cate_tit">참 브레이슬릿</h2>
+                    <ul class="dp2">
+                        <li class="dp2_tit">Charms</li>
+                        <li><a href="">모든 참</a></li>
+                        <li><a href="">참</a></li>
+                        <li><a href="">클립</a></li>
+                        <li><a href="">스페이서</a></li>
+                        <li><a href="">세이프티 체인</a></li>
+                        <li><a href="">댕글</a></li>
+                        <li><a href="">쁘띠 참</a></li>
+                    </ul>                    
+                    <ul class="dp2">
+                        <li class="dp2_tit">Bracelets</li>
+                        <li><a href="">모든 브레이슬릿</a></li>
+                        <li><a href="">체인</a></li>
+                        <li><a href="">뱅글</a></li>
+                        <li><a href="">기타</a></li>
+                    </ul>
+                </li>
+                <li class="cate">
+                    <h2 class="cate_tit">주얼리</h2>
+                    <ul class="dp2">
+                        <li class="dp2_tit">Rings</li>
+                        <li><a href="">모든 링</a></li>
+                        <li><a href="">레이어드 링</a></li>
+                        <li><a href="">스테이트먼트 링</a></li>
+                        <li><a href="">탄생석</a></li>
+                    </ul>
+                    <ul class="dp2">
+                        <li class="dp2_tit">Necklaces</li>
+                        <li><a href="">모든 네크리스</a></li>
+                        <li><a href="">넥크리스</a></li>
+                        <li><a href="">펜던트</a></li>
+                        <li><a href="">로켓</a></li>
+                        <li><a href="">초커</a></li>
+                    </ul>
+                    <ul class="dp2">
+                        <li class="dp2_tit">Earrings</li>
+                        <li><a href="">모든 이어링</a></li>
+                        <li><a href="">후프</a></li>
+                        <li><a href="">스터드</a></li>
+                        <li><a href="">드롭</a></li>
+                    </ul>
+                </li>
+                <li class="cate">
+                    <h2 class="cate_tit">기프트</h2>
+                    <ul class="dp2">
+                        <li class="dp2_tit">Gift For</li>
+                        <li><a href="">가족</a></li>
+                        <li><a href="">연인</a></li>
+                        <li><a href="">친구</a></li>
+                    </ul>
+                    <ul class="dp2">
+                        <li class="dp2_tit">Occasion</li>   
+                        <li><a href="">생일</a></li>
+                        <li><a href="">기념일</a></li>
+                        <li><a href="">크리스마스</a></li>
+                        <li><a href="">졸업</a></li>
+                    </ul>
+                    <ul class="dp2">
+                        <li class="dp2_tit">Price Range</li>
+                        <li><a href="">~ ₩ 58,000</a></li>
+                        <li><a href="">~ ₩ 78,000</a></li>
+                        <li><a href="">~ ₩ 98,000</a></li>
+                        <li><a href="">~ ₩ 138,000</a></li>
+                        <li><a href="">~ ₩ 138,000 이상</a></li>
+                    </ul>
+                </li>
+                <li class="cate">
+                    <h2 class="cate_tit">콜렉션</h2>
+                    <ul class="dp2">
+                        <li class="dp2_tit">Collections</li>
+                        <li><a href="">판도라 미</a></li>
+                        <li><a href="">디즈니 x 판도라</a></li>
+                        <li><a href="">해리 포터</a></li>
+                        <li><a href="">판도라 아이디</a></li>
+                        <li><a href="">판도라 피플</a></li>
+                        <li><a href="">판도라 프렌즈</a></li>
+                    </ul>
+                </li>                
+            </ul>
+        </nav>
+        <div id="search_form">
+            <form action="" class="search_fr">
+                <fieldset>
+                    <input type="text" id="keywords" placeholder="SERCH">
+                    <input type="submit" id="search_btn">
+                </fieldset>
+                <div class="hash_fr">
+                    <h3 class="hash_tit">인기 검색어</h3>
+                    <a href="">링크드 러브 링</a>
+                    <a href="">골든 레드 하트 원러브 링</a>
+                    <a href="">판도라 미 스네이크 체인 브레이슬릿</a>
+                    <a href="">마이 러블리 캑터스 댕글 참</a>
+                    <a href="">모멘츠 오픈 뱅글</a>
+                    <a href="">심플 스파클링 밴드 링</a>
+                    <a href="">폴리쉬드 크라운 오 스터드 이어링</a>
+                    <a href="">멀티 컬러 아크 오브 러브 세이프티 체인</a>
+                    <a href="">모멘츠 하트 클라습 브레이슬릿</a>
+                    <a href="">인피니티 샤인 링</a>
+                </div>
+            </form>
+        </div>
+        <header class="hd">
+            <div class="hd_wrap">
+                <ul class="top1">
+                    <li>
+                        <label for="ck1" class="menu_call_btn">
+                            <span class="bar1"></span>
+                            <span class="bar2"></span>
+                            <span class="bar3"></span>
+                        </label>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="./images/icon_location.png" alt="스토어">
+                        </a>
+                    </li>
+                    <li>
+                        <label for="ck2" class="search_call_btn">
+                        검색
+                        </label>
+                    </li>
+                </ul>
+                <a href="" class="logo">로고</a>
+                <div class="lang">
+                    <a href="" class="cur_lang">KR</a>
+                    <a href="">EN</a>
+                </div>
+            </div>
+            <nav class="gnb" id="gnb">
+                <ul>
+                    <li>
+                        <a href="" class="dp1">참 브레이슬릿</a>
+                        <div class="sub item1">
+                            <ul>
+                                <li class="menu_tit">Charms</li>
+                                <li><a href="" class="dp2">모든 참</a></li>
+                                <li><a href="" class="dp2">참</a></li>
+                                <li><a href="" class="dp2">클립</a></li>
+                                <li><a href="" class="dp2">스페이서</a></li>
+                                <li><a href="" class="dp2">세이프티 체인</a></li>
+                                <li><a href="" class="dp2">댕글</a></li>
+                                <li><a href="" class="dp2">쁘띠 참</a></li>
+                            </ul>
+                            <ul>
+                                <li class="menu_tit">Bracelets</li>
+                                <li><a href="" class="dp2">모든 브레이슬릿</a></li>
+                                <li><a href="" class="dp2">체인</a></li>
+                                <li><a href="" class="dp2">뱅글</a></li>
+                                <li><a href="" class="dp2">기타</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="" class="dp1">주얼리</a>
+                        <div class="sub item2">
+                            <ul>
+                                <li class="menu_tit">Rings</li>
+                                <li><a href="" class="dp2">모든 링</a></li>
+                                <li><a href="" class="dp2">레이어드 링</a></li>
+                                <li><a href="" class="dp2">스테이트먼트 링</a></li>
+                                <li><a href="" class="dp2">탄생석</a></li>
+                            </ul>
+                            <ul>
+                                <li class="menu_tit">Necklaces</li>
+                                <li><a href="" class="dp2">모든 네크리스</a></li>
+                                <li><a href="" class="dp2">넥크리스</a></li>
+                                <li><a href="" class="dp2">펜던트</a></li>
+                                <li><a href="" class="dp2">로켓</a></li>
+                                <li><a href="" class="dp2">초커</a></li>
+                            </ul>
+                            <ul>
+                                <li class="menu_tit">Earrings</li>
+                                <li><a href="" class="dp2">모든 이어링</a></li>
+                                <li><a href="" class="dp2">후프</a></li>
+                                <li><a href="" class="dp2">스터드</a></li>
+                                <li><a href="" class="dp2">드롭</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="" class="dp1">기프트</a>
+                        <div class="sub item3">
+                            <ul>
+                                <li class="menu_tit">Gift For</li>
+                                <li><a href="" class="dp2">가족</a></li>
+                                <li><a href="" class="dp2">연인</a></li>
+                                <li><a href="" class="dp2">친구</a></li>
+                            </ul>
+                            <ul>
+                                <li class="menu_tit">Occasion</li>
+                                <li><a href="" class="dp2">생일</a></li>
+                                <li><a href="" class="dp2">기념일</a></li>
+                                <li><a href="" class="dp2">크리스마스</a></li>
+                                <li><a href="" class="dp2">졸업</a></li>
+                            </ul>
+                            <ul>
+                                <li class="menu_tit">Price Range</li>
+                                <li><a href="" class="dp2">~ ₩ 58,000</a></li>
+                                <li><a href="" class="dp2">~ ₩ 78,000</a></li>
+                                <li><a href="" class="dp2">~ ₩ 98,000</a></li>
+                                <li><a href="" class="dp2">~ ₩ 138,000</a></li>
+                                <li><a href="" class="dp2">~ ₩ 138,000 이상</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="" class="dp1">콜렉션</a>
+                        <div class="sub item4">
+                            <ul>
+                                <li class="menu_tit">Collections</li>
+                                <li><a href="" class="dp2">판도라 미</a></li>
+                                <li><a href="" class="dp2">디즈니 x 판도라</a></li>
+                                <li><a href="" class="dp2">해리 포터</a></li>
+                                <li><a href="" class="dp2">판도라 아이디</a></li>
+                                <li><a href="" class="dp2">판도라 피플</a></li>
+                                <li><a href="" class="dp2">판도라 프렌즈</a></li>
+                            </ul>                
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <div class="content">
+            <figure class="vs">
+                <input type="radio" id="ra1" name="ra" class="ra" data-val="1" checked>
+                <input type="radio" id="ra2" name="ra" class="ra" data-val="2">
+                <div class="img_box">
+                    <ul class="img_fr">
+                        <li class="item"><img src="./images/main_vs1.png" alt="배너1"></li>
+                        <li class="item"><img src="./images/main_vs2.png" alt="배너2"></li>
+                    </ul>
+                </div>
+                <ul class="tit_box">
+                    <li class="item">
+                        <h2 class="vs_tit">바다의 보물<br>여름 바다로 풍덩</h2>
+                        <p class="vs_com">이국의 해변을 떠올리게 하는 주얼리로 <br>여름 바다를 품으세요. 바다의 비밀을 <br>영감으로 완성한 진정한 블루 주얼리로 <br>즐거운 스타일을 완성해 보세요.</p>
+                        <a href="" class="vs_arrow"></a>
+                    </li>
+                    <li class="item">
+                        <h2 class="vs_tit">바다의 보물<br>여름 바다로 풍덩</h2>
+                        <p class="vs_com">이국의 해변을 떠올리게 하는 주얼리로 <br>여름 바다를 품으세요. 바다의 비밀을 <br>영감으로 완성한 진정한 블루 주얼리로 <br>즐거운 스타일을 완성해 보세요.</p>
+                        <a href="" class="vs_arrow"></a>
+                    </li>
+                </ul>
+                <ul class="arr_box">
+                    <li class="item">
+                        <div class="arr_box">
+                            <label for="ra2" class="next_btn" data-val="2"></label>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <div class="arr_box">
+                            <label for="ra1" class="prev_btn" data-val="1"></label>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <div class="arr_box">
+                            <label for="ra2" class="prev_btn" data-val="2"></label>
+                            <label for="ra1" class="next_btn" data-val="1"></label>
+                        </div>
+                    </li>
+                </ul>
+                <div class="vs_num_box">
+                    <span class="cur_num"></span> / <span>2</span>
+                </div>
+                <script>
+                $(document).ready(function(){
+                    $(".cur_num").text(1);
+                    $(".arr_box li label").click(function(){
+                        $(".cur_num").text(parseInt($(this).attr("data-val")));
+                    });
+                });
+                </script>
+            </figure>
+            <section class="page" id="page1">
+                <div class="page_wrap">
+                    <h2 class="page_tit">바다 보물로 완성하는 스태킹</h2>
+                    <p class="page_com">이국의 해변을 떠올리게 하는 주얼리로 여름 바다를 품으세요. 바다의 비밀을 영감으로 완성한 진정한 블루 주얼리로 즐거운 스타일을 완성해 보세요.</p>
+                    <ul class="lst_box1">
+                        <li class="item">
+                            <img src="./images/con1_img1.png" alt="상품이미지1">
+                            <span class="more"></span>
+                            <div class="lst_tit_box">
+                                <h3 class="lst_tit">무라노 글라스 씨 터틀 댕글 참</h3>
+                                <p class="lst_com">₩ 98,000<br>깊고 푸른 바다의 고요한 생명을 영감으로 완성한 뮤라노 글래스 바다 거북이 댕글 참입니다.</p>
+                                <a href="" class="detail">자세히 보기</a>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <img src="./images/con1_img2.png" alt="상품이미지2">
+                            <span class="more"></span>
+                            <div class="lst_tit_box">
+                                <h3 class="lst_tit">오픈워크 해마 하트 참</h3>
+                                <p class="lst_com">₩ 55,000<br>오픈워크 해마 참으로 바다 깊은 곳까지 전해지는 당신의 사랑을 보여주세요.</p>
+                                <a href="" class="detail">자세히 보기</a>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <img src="./images/con1_img3.png" alt="상품이미지3">
+                            <span class="more"></span>
+                            <div class="lst_tit_box">
+                                <h3 class="lst_tit">블루 피쉬 댕글 참</h3>
+                                <p class="lst_com">₩ 98,000<br>바닷속 신비의 친구, 블루 피쉬를 컬렉션에 더해보세요. 바다를 품은 스털링 실버 물고기 참입니다.</p>
+                                <a href="" class="detail">자세히 보기</a>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <img src="./images/con1_img4.png" alt="상품이미지1">
+                            <span class="more"></span>
+                            <div class="lst_tit_box">
+                                <h3 class="lst_tit">스파클링 불가사리 댕글 참</h3>
+                                <p class="lst_com">₩ 98,000<br>깊고 푸른 바다의 신비로운 생명체를 표현한 불가사리 댕글 참은 어떤 의상에도 빛을 더해줍니다.</p>
+                                <a href="" class="detail">자세히 보기</a>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <img src="./images/con1_img5.png" alt="상품이미지1">
+                            <span class="more"></span>
+                            <div class="lst_tit_box">
+                                <h3 class="lst_tit">쉬머링 돌핀 댕글 참</h3>
+                                <p class="lst_com">₩ 78,000<br>돌고래 참으로 깊고 푸른 바닷속에 사는 아름답고 사랑스러운 모든 생명에 대한 사랑을 표현해보세요.</p>
+                                <a href="" class="detail">자세히 보기</a>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <img src="./images/con1_img6.png" alt="상품이미지1">
+                            <span class="more"></span>
+                            <div class="lst_tit_box">
+                                <h3 class="lst_tit">쉬머링 일각 고래 참</h3>
+                                <p class="lst_com">₩ 78,000<br>쉬머링 일각 고래 참에서 더 깊은 곳에 숨은 인생의 의미를 발견해보세요.</p>
+                                <a href="" class="detail">자세히 보기</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section class="page" id="page2">
+                <div class="page_wrap">
+                    <h2 class="page_tit none_tit"></h2>
+                    <input type="radio" id="ba1" name="ba" class="ba" checked>
+                    <input type="radio" id="ba2" name="ba" class="ba">
+                    <input type="radio" id="ba3" name="ba" class="ba">
+                    <ul class="lst_box2">
+                        <li class="ban_box1">
+                           <div class="box1">
+                                <ul class="box1_fr">
+                                    <li>
+                                        <h3 class="ban_tit">노티드 하트 링</h3>
+                                    </li>
+                                    <li>
+                                        <h3 class="ban_tit">하츠 오브 판도라 네크리스</h3>
+                                    </li>
+                                    <li>
+                                        <h3 class="ban_tit">에쉬메트릭 하츠 오브 러브 이어링</h3>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="box2">
+                                <ul class="box2_fr">
+                                    <li><img src="./images/con2_img1.png" alt="상품이미지1"></li>
+                                    <li><img src="./images/con2_img3.png" alt="상품이미지2"></li>
+                                    <li><img src="./images/con2_img5.png" alt="상품이미지3"></li>
+                                </ul>
+                            </div>
+                            <div class="box3">
+                                <ul class="box3_fr">
+                                    <li class="item1">
+                                        <p class="ban_com">안티에이징의 시작, 피부 밑바탕이 달라지는<br>14d일</p>
+                                    </li>
+                                    <li class="item2">
+                                        <p class="ban_com">신선하고 톡톡 튀는 생동감 넘치는 향의 데어 바디 라인으로 당신의 순간을 완성하세요!</p>
+                                    </li>
+                                    <li class="item3">
+                                        <p class="ban_com">카메라 필터로 보정한 듯, 원하는 무드 한 큐에 장착<br>컬러필터 룩으로 감성 무드를 연출해보세요</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="box4">
+                                <a href="" class="ban_more">제품 자세히 보기</a>
+                            </div>
+                        </li>
+                        <li class="ban_box2">
+                           <div class="box1">
+                                <ul class="box1_fr">
+                                    <li class="item1"><img src="./images/con2_img2.png" alt="배너1"></li>
+                                    <li class="item2"><img src="./images/con2_img4.png" alt="배너2"></li>
+                                    <li class="item3"><img src="./images/con2_img6.png" alt="배너3"></li>
+                                </ul>
+                            </div>
+                            <div class="box2">
+                               <ul class="box2_fr">
+                                    <li>
+                                        <p class="ban_com">노티드 하트 링</p>
+                                    </li>
+                                    <li>
+                                        <p class="ban_com">하츠 오브 판도라 네크리스</p>
+                                    </li>
+                                    <li>
+                                        <p class="ban_com">에쉬메트릭 하츠 오브 러브 이어링</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="ban_box3">
+                            <label for="ba1" class="menu_txt item1">Rings</label>
+                            <label for="ba2" class="menu_txt item2">Necklaces</label>
+                            <label for="ba3" class="menu_txt item3">Earrings</label>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section class="page" id="page3">
+                <div class="page_wrap">
+                    <h2 class="page_tit">#PANDORA</h2>
+                    <ul class="lst_box3">
+                        <li class="col1">
+                            <div class="md_box">
+                                <a href="">
+                                    <img src="./images/con3_img1.png" alt="인스타1">
+                                </a>
+                                <a href="">
+                                    <img src="./images/con3_img2.png" alt="인스타2">
+                                </a>
+                            </div>
+                        </li>
+                        <li class="col2">
+                            <div class="md_box">
+                                <a href="" class="utb_box">
+                                    <img src="./images/con3_img3.png" alt="유튜브">
+                                </a>
+                                <a href="">
+                                    <img src="./images/con3_img4.png" alt="인스타3">
+                                </a>
+                            </div>
+                        </li>
+                        <li class="col3">
+                           <div class="md_box">
+                            <a href="">
+                                <img src="./images/con3_img5.png" alt="인스타4">
+                            </a>
+                            <a href="">
+                                <img src="./images/con3_img6.png" alt="인스타5">
+                            </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+        <footer class="ft">
+            <div class="ft_wrap">
+                <ul class="ft_box">
+                    <li class="col1">
+                        <img src="./images/logo2.png" alt="하단로고">
+                    </li>
+                    <li class="col2">
+                        <p class="linkbar">
+                            <a href="">회원정책</a>
+                            <a href="">배송 및 교환 정책</a>
+                            <a href="">개인정보처리방침</a>
+                            <a href="">이용약관</a>
+                        </p>
+                        <p class="addr">
+                            ㈜스타럭스 대표이사 : 박상배 ㅣ 사업자등록번호 : 120-86-24028 ㅣ 통신판매업등록번호 : 서울 강남 – 4364호 <br>본사 : 서울특별시 강남구 봉은사로 524 (삼성동) 코엑스몰점 B1층 R112판도라 ㅣ 고객센터 : 02-551-0605 월~금 11:00 ~ 16:00<br>E-Mail : 판도라 공식 온라인몰 (pandoracs@starluxe.co.kr) ㅣ 개인정보보호책임자 : EC팀 송대천 팀장 dcsong@starluxe.co.kr
+                        </p>
+                        <p class="copyright">COPYRIGHT 2019 PANDORA. ALL RIGHTS RESERVED.</p>
+                    </li>
+                    <li class="col3">
+                        <p class="sns_link">
+                            <a href="" class="utb_ico"></a>
+                            <a href="" class="insta_ico"></a>
+                            <a href="" class="face_ico"></a>
+                        </p>
+                        <select name="" id="sel">
+                            <option value="">Family Site</option>
+                            <option value="https://www.mynunc.com/main">NUNC</option>
+                            <option value="https://www.apieu.com/kr/index">A'piue</option>
+                            <option value="http://ablecnc.com/">ABLE C&amp;C</option>
+                        </select>
+                        <script>
+                        $(document).ready(function(){
+                            $("#sel").change(function(){
+                                var url = $(this).val();
+                                location.href = url;
+                            });
+                        });    
+                        </script>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
