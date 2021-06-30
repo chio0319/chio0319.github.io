@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>러쉬코리아</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="./images/favicon.png"
+    sizes="16*16"><!-- 일반 메타포 아이콘 연결 -->
+    <link rel="apple-touch-icon" href="./images/favicon96.png"
+    sizes="96*96"><!-- 아이폰에서의 연결 -->
+    <link rel="icon" href="./images/favicon192.png" sizes="192*192">
+    <!-- 안드로이드폰에서의 연결 -->
+    <meta name="title" content="러쉬코리아">
+    <meta name="description" content="향수, 배쓰밤, 보디스프레이 등을
+    생산하여 공급하는 쇼핑몰입니다.">
+    <meta name="keywords" content="향수, 배쓰밤, 보디스프레이">
+    <meta name="subject" content="정수기, 임대, 매매">                           
+    <meta property="og:type" content="website">
+    <meta property="og:url" 
+    content="http://chio0319.github.io/web1">
+    <meta property="og:title" content="러쉬코리아">
+    <meta property="og:image"
+    content="./imges/visul2.jpg">
+    <meta property="og:description" content="향수, 배쓰밤, 보디스프레이
+     등을 생산하여 공급하는 쇼핑몰입니다.">
+    <meta property="og:site_name" content="향수, 배쓰밤, 보디스프레이">
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="font.css">
+    <link rel="preconnect" href="">
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script>
+    $(document).ready(function(){
+        var wd = parseInt($(".img_box li").width());
+        var len = $(".vs .img_box li").length;
+        function ani1() {
+            $(".vs .img_box").not(":animated").animate({"margin-left":-wd+"px"}, 600, function(){ 
+                $(".vs .img_box li").eq(0).appendTo($(".vs .img_box")); 
+                $(".vs .img_box").css("margin-left","0px");
+            });
+        }
+        function ani2() {
+            $(".vs .img_box li").eq(len-1).prependTo($(".vs .img_box"));
+            $(".vs .img_box").css("margin-left",-wd+"px");
+            $(".vs .img_box").not(":animated").animate({"margin-left":"0px"}, 600);
+        }
+        var intv = setInterval(function() { ani1(); }, 6000);
+        $(".vs .prev_btn").click(function(){
+            clearInterval(intv);
+            ani2();
+            intv = setInterval(function() { ani1(); }, 6000);
+        });
+        $(".vs .next_btn").click(function(){
+            clearInterval(intv);
+            ani1();
+            intv = setInterval(function() { ani1(); }, 6000);
+        });
+    });    
+    </script>
+    <link href=""><!-- 폰트 복붙부분임 -->
+    
+    <style>
+    /* 초기화 */
+    * { margin: 0; padding: 0; }
+    body, html { width: 100%; font-family: 'nsk';
+        -ms-overflow-style: none; /* IE and Edge */
+        scroller-width: none; /* Firefox */
+    }
+    ::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+    }
+    ul { list-style: none; }
+    a { text-decoration: none; }
+    input, button, a { outline: 0; user-select: none; }
+
+    
+    .jss {font-family: 'Josefin Sans', sans-serif;}
+    </style>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109283150-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-109283150-1');
+    </script>
+    <style>
+        .wrap { width: 100%; }
+        .hd { clear:both; width: 100%; height: 120px; position: fixed; left: 0; top: 0; z-index: 999; }
+        .hd_wrap { width: 100%; background-color: #fff; }
+        /* 쿠쿠넬로 푸터 부분 */
+        .ft { clear: both; width: 100%; height: 170px; background-color: black;  padding-top: 30px; padding-bottom: 30px; }
+        .ft_wrap { width: 1440px; margin: 0 auto; color: #fff; }
+        .ft_logo { display: block; float: left; }
+        .ft_link { float: right; padding-top: 22px; }
+        .ft_link li { float: left; }
+        .ft_link li a { color: #fff; }
+        .ft_link li a:after { content: "|"; margin: 20px; }
+        .ft_link li:last-child a:after { content:""; } 
+        .ft_link li:first-child { padding-left: 0px; }
+        .ft_col2 { padding-bottom: 50px; }
+        .coll { clear: both; float: left; padding-top: 20px; padding-bottom: 20px; }
+        .ft3 { float: right; padding-bottom: 30px; }
+        .adder, .copyright { font-weight: 200; font-size: 0.85em; color: #fff; padding-top: 20px; }
+       
+        
+        .hd_wrap:last-child { background-color:black; height: 100px; }
+        .tnb { width: 1440px; margin: 0 auto; height: 32px; }
+        .tnb ul { float:right}
+        .tnb ul li { float: left; padding: 5px 10px; }
+        .tnb ul li a { color:#333; font-size:12px; }
+        .tnb ul li:last-child { padding-right: 0; }
+        .menu_fr { width: 1440px; margin: 0 auto; }
+        .logo { float: left; display: block; padding-top: 23px }
+        .gnb { float: right; }
+        .gnb ul li { float: left; padding: 36px 40px; }
+        .gnb ul li a { color: #fff; font-size: 18px; font-family:sans-serif ; font-weight: 600; }
+        .gnb ul li a:hover { color:gold; }
+        .gnb ul li:last-child { padding-right: 0; }
+        .gnb_wrap { width: 1440px; margin:0 auto;}
+        
+        .content { clear:both; width: 100%; }
+        .vs { clear:both; width: 100%; position:relative; height: 842px; padding-top: 101px; }
+        .vs .img_box { width: 500%; }
+        .vs .img_box li { width: 20%; float:left; }
+        .vs .img_box li img { display:block; width: 100%; }
+        .btn_box li button { position:absolute; z-index:10; display:block;
+        width: 80px; height: 80px; top:350px; background-color: transparent; border:0; outline:0; cursor: pointer; background-position:center center; background-repeat: no-repeat; }
+        .btn_box li button.prev_btn { background-image: url("./images/prev_btn.png"); left:60px; }
+        .btn_box li button.next_btn { background-image: url("./images/next_btn.png"); right:60px; }
+        
+        .page { clear:both ; width: 1200px; margin: 0 auto; height: 100vh; padding-top: 50px; }
+        .page_wrap { width: 1440px; margin: 0 auto; }
+        .utb_tit2 { font-size: 35px; font-weight: 900; }
+        .utb_com { color:dimgray; font-size: 18px; padding-top: 10px; font-weight: 300; }
+        .right { float: right; }
+        
+        #page1 { clear: both; width: 100%; }
+        .page_tit { padding-top: 60px; padding-bottom: 30px; font-size: 35px; text-align: center; color: #000000; }
+        .thum_ban_1st .img_box li { float: left; margin-left: 50px; }
+        
+        /* 사진 그리드 부분 */
+        #page2 { clear: both; width: 100%; padding-top: 200px; }
+        #page2 .page_wrap { width: 1440px; }
+        #page2 .img_box ul { clear: both; width: 1440px; margin: 0 auto; }
+        #page2 .img_box li { float: left; width: 581px; height: 533px; }
+        #page2 .img_box li:nth-child(2) { width: 859px; }
+        #page2 .img_box li a { display: block; float: left; height: auto; }
+        #page2 .img_box li img { display: block; }
+        
+        #page3 { clear: both; width: 100%; height: 150px; background-color: #f2f2f2; }
+        #page3 .page_wrap { width: 1440px; margin: 0 auto; }
+        #page3 .icon_box li { float: left; margin-right: 140px; }
+        #page3 .icon_box li:last-child { margin-right: 0; }
+        
+        
+        .hid_tit { visibility: hidden; }
+        .none_tit { display: none; }
+        
+        
+    </style>
+    <style>
+        
+    </style>
+</head>
+<body>
+   <div class="wrap">
+       <header class="hd">
+           <div class="hd_wrap">
+              <nav class="tnb">
+                  <ul>
+                      <li><a href="join.html">회원가입</a></li>
+                      <li><a href="login.html">로그인</a></li>
+                      <li><a href="mypage.html">마이페이지</a></li>
+                      <li><a href="shopping.html">장바구니</a></li>
+                  </ul>
+              </nav>    
+           </div>
+           <div class="hd_wrap">
+                <div class="gnb_wrap">
+                   <a href="index.html" class="logo">
+                       <img src="./images/logo.png" alt="러쉬로고">
+                   </a>
+                   <nav class="gnb">
+                       <ul>
+                           <li><a href="product.html#page1">제품 소개</a></li>
+                           <li><a href="product.html#page2">러쉬 소개</a></li>
+                           <li><a href="event.html">이벤트</a></li>
+                           <li><a href="service.html">서비스</a></li>
+                       </ul>
+                   </nav>
+               </div>  
+           </div>
+       </header>
+       <div class="content">
+           <figure class="vs">
+               <ul class="img_box">
+                   <li><img src="./images/mvs1.png" alt="비주얼배너1"></li>
+                   <li><img src="./images/mvs2.png" alt="비주얼배너2"></li>
+                   <li><img src="./images/mvs3.png" alt="비주얼배너3"></li>
+                   <li><img src="./images/mvs4.png" alt="비주얼배너4"></li>
+                   <li><img src="./images/mvs5.png" alt="비주얼배너5"></li>
+               </ul>
+                <ul class="btn_box">
+                    <li><button class="prev_btn"></button></li><!--이전이미지-->
+                    <li><button class="next_btn"></button></li><!--다음이미지-->
+                </ul>              
+            </figure>
+            <section class="page">
+               <h2 class="page_tit hid_tit">유튜브동영상</h2>
+                <div class="page_wrap">
+                        <h2 class="utb_tit2">러쉬 입문자들을 위한 추천 제품</h2>
+                        <p class="utb_com">출구없는 매력! 헤어나오지 못하는 향기와<br> 만족도에 빠져보세요!</p>
+                </div>
+            <div class="right">
+                <iframe width="700" height="400" src="https://www.youtube.com/embed/owj6VmYMtjY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+           </section>
+            <section class="page" id="page1">
+                <h2 class="page_tit">나만 알고 싶은 향기</h2>
+                <div class="page_wrap">
+                    <ul class="thum_ban_1st">
+                        <ul class="img_box">
+                            <li><img src="./images/mimg1.png" alt="비비 씨위드"></li>
+                            <li><img src="./images/mimg2.png" alt="마스크 오브 매그너민티"></li>
+                            <li><img src="./images/mimg3.png" alt="더티 보디 스프레이"></li>
+                            <li><img src="./images/mimg4.png" alt="더 레트로스펙티브 디스커버리 키트"></li>
+                            <li><img src="./images/mimg5.png" alt="뷰티 슬립"></li>
+                            <li><img src="./images/mimg6.png" alt="더티"></li>
+                            <li><img src="./images/mimg7.png" alt="카타스트로피 코스메틱"></li>
+                            <li><img src="./images/mimg8.png" alt="대디-오"></li>
+                            <li><img src="./images/mimg9.png" alt="뉴"></li>
+                            <li><img src="./images/mimg10.png" alt="코스메틱 워리어"></li>
+                            <li><img src="./images/mimg11.png" alt="돈트 룩 앳 미"></li>
+                            <li><img src="./images/mimg12.png" alt="씨 베지터블"></li>
+                        </ul>
+                    </ul>
+                </div>   
+            </section>
+            <section class="page" id="page2">
+                <div class="page_wrap">
+                    <ul class="thum_ban_2st">
+                        <ul class="img_box">
+                            <li><a href=""><img src="./images/m_img1_1.png" alt="희망을 전하는 HOPE 낫랩"></a></li>
+                            <li>
+                                <a href=""><img src="./images/m_img2.gif" alt="이불처럼 포근한 거품 속으로"></a>
+                                <a href=""><img src="./images/m_img3_3.png" alt="5월 리뷰 이벤트"></a>
+                                <a href=""><img src="./images/m_img4_4.png" alt="코로나 19 예방을 위한 매장 운영 안내"></a>
+                            </li>
+                        </ul>
+                    </ul>
+                </div>
+            </section>
+            <section class="page" id="page3">
+                <div class="page_wrap">
+                    <ul class="icon_box">
+                        <li><img src="./images/f_icon1.png" alt="아이콘1"></li>
+                        <li><img src="./images/f_icon2.png" alt="아이콘2"></li>
+                        <li><img src="./images/f_icon3.png" alt="아이콘3"></li>
+                        <li><img src="./images/f_icon4.png" alt="아이콘4"></li>
+                        <li><img src="./images/f_icon5.png" alt="아이콘5"></li>
+                        <li><img src="./images/f_icon6.png" alt="아이콘6"></li>
+                    </ul>
+                </div>
+            </section>
+       </div>
+        <footer class="ft">
+            <div class="ft_wrap">
+               <div class="ft_col1">
+                    <div class="ft_logo">
+                       <img src="./images/flogo.png" alt="푸터로고">
+                    </div>
+                    <nav class="ft_link">
+                        <ul>
+                            <li><a href="company.html#page1">스카우트</a></li>
+                            <li><a href="">회사소개</a></li>
+                            <li><a href="">개인정보처리방침</a></li>
+                            <li><a href="">영상정보관리지침</a></li>
+                            <li><a href="">이용약관</a></li>
+                            <li><a href="">고객센터</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="ft_col2">
+                <p class="coll">
+                    고객센터 1644-2357<br>webmaster@lush.co.kr<br>상담전화 13:00~16:00(평일)<br>상담톡 10:00~16:00(평일)
+                </p>
+            <div class="ft3">
+                <p class="adder">서울특별시 서초구 서운로 138 (서초동아타워)6층｜사이트운영자:주식회사러쉬코리아｜대표이사:우미령<br>사업자등록번호:201-81-77964사업자정보확인｜통신판매업 신고번호:2012-서울서초-0647｜개인정보보호책임자:우승용</p>
+                <p class="copyright">
+                    COPYRIGHT ⓒ LUSHKOREA CO.LTD.ALL RIGHTS PESERVED.
+                </p>
+            </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
