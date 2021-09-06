@@ -1,0 +1,20 @@
+@charset "utf-8";
+#menu {
+    position: fixed;
+    top: 40%;
+    left: 3%;
+    z-index: 10;
+}
+#menu li a {
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%; 
+    background: #000;
+    margin: 10px;
+    transition: all 0.5s;
+}
+
+#menu li:hover a, #menu li.on a {
+    background: #fff;
+}
