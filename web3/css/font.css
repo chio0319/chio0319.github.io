@@ -1,0 +1,43 @@
+@charset "utf-8";  
+
+@font-face {
+    font-family: 'NanumBarunGothic';
+    src: url('../fonts/NanumBarunGothic.eot');
+    src: url('../fonts/NanumBarunGothic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;    
+}
+@font-face{
+    font-family: 'NotoSans-Regular';
+    src: url('../fonts/NotoSans-Regular.eot');
+    src: url('../fonts/NotoSans-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;  
+}
+@font-face{
+    font-family: 'NanumSquare_acR';
+    src: url('../fonts/NanumSquare_acR.eot');
+    src: url('../fonts/NanumSquare_acR.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;  
+}
+@font-face{
+    font-family: 'Pretendard-Light';
+    src: url('../fonts/Pretendard-Light.eot');
+    src: url('../fonts/Pretendard-Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;  
+}
+@font-face{
+    font-family: 'Pretendard-Regular';
+    src: url('../fonts/Pretendard-Regular.eot');
+    src: url('../fonts/Pretendard-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;  
+}
+@font-face {
+    font-family: 'GmarketSansBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
