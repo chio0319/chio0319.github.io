@@ -1,0 +1,399 @@
+@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+
+body {
+    font-family: 'NanumBarunGothic'; 
+}
+/*스크롤바 시작*/
+::-webkit-scrollbar {
+  width: 13px;
+}
+ 
+::-webkit-scrollbar-track {
+    background: rgba(222, 222, 222, .75);
+    border-radius: 5px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    /*background: linear-gradient(#c2e59c, #64b3f4);*/
+    background: rgba(0, 0, 0, .5);
+    border-radius: 5px;
+}
+/*스크롤바 끝*/
+.background_wrap {
+    transition: background 0.8s;
+}
+.background_wrap.on {
+    background: rgba(0,0,0,0.3);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+}
+.background_wrap.on1 {
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+}
+/*마우스 커서 시작*/
+/*@media only screen and (min-width:769px) {
+	body,
+	a {
+		cursor: none;
+	}
+   
+	.cursor {
+		position: fixed;
+		left: 0;
+		top: 0;
+		pointer-events: none;
+	}
+	.cursor--small {
+		width: 40px;
+		height: 40px;
+		left: -10px;
+		top: -10px;
+		border-radius: 50%;
+		z-index: 99;
+		background: #7999a3;
+	}
+	.cursor--canvas {
+		width: 100vw;
+		height: 100vh;
+		z-index: 100;
+	}
+}
+
+@media only screen and (max-width:768px) {
+	body {
+		cursor: none;
+	}
+	.cursor--small,
+	.cursor--canvas {
+		display: none;
+	}
+}*/
+/*마우스 커서 끝*/
+.hd {
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    z-index: 1;
+    /*border-bottom: 1px solid #bbb;*/
+}
+.hd_wrap {
+    width: 90vw;
+    margin: 0 auto;
+}
+.hd img {
+    display: block;
+    margin: 31px 0px;
+}
+.fixed_gnb {
+    position: fixed;
+    width: 50px;
+    height: 170px;
+    background: #fff;
+    right: 0;
+    top: 40%;
+    box-shadow: 20px 20px 20px rgba(0,0,0,0.3); 
+    transition: all 0.8s;
+    z-index: 1000;
+    cursor: pointer;
+}
+.fixed_gnb:hover {
+    width: 70px;
+}
+.fixed_gnb i {
+    font-size: 40px;
+    margin-left: 5px;
+    margin-top: 10px;
+}
+.fixed_gnb p {
+    writing-mode: vertical-rl;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+.gnb_contents ul li a img {
+    display: block;
+    width: 350px;
+    float: right;
+}
+.gnb_contents i {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 28px;
+}
+.gnb_contents {
+    display: none;
+}
+.menu-trigger {
+  margin-right: 70px;
+  margin-bottom: 50px;
+}
+.menu-trigger, .menu-trigger span {
+  display: inline-block;
+  transition: all 0.4s;
+  box-sizing: border-box;
+}
+
+.menu-trigger {
+  position: relative;
+  width: 50px;
+  height: 24px;
+  top: 10%;
+}
+
+.menu-trigger span {
+  position: absolute;
+  left: 10px;
+  width: 60%;
+  height: 4px;
+  background-color: #000;
+  border-radius: 4px;
+}
+
+.menu-trigger span:nth-of-type(1) {
+  top: 0;
+}
+
+.menu-trigger span:nth-of-type(2) {
+  top: 10px;
+}
+
+.menu-trigger span:nth-of-type(3) {
+  bottom: 0;
+}
+
+/* type-01 */
+/* 중앙 라인이 고정된 자리에서 투명하게 사라지며 상하라인 회전하며 엑스자 만들기 */
+.menu-trigger.active-1 span:nth-of-type(1) {
+  -webkit-transform: translateY (20px) rotate (-45deg);
+  transform: /*translateY(20px)*/ rotate(-45deg);
+}
+
+.menu-trigger.active-1 span:nth-of-type(2) {
+  opacity: 0;
+}
+
+.menu-trigger.active-1 span:nth-of-type(3) {
+  -webkit-transform: translateY(-20px) rotate(45deg);
+  transform: translateY(-20px) rotate(45deg);
+}
+.fixed_background {
+    width: 100%;
+    height: 100%;
+    background: url(../images/v8.jpg) no-repeat center center;
+    background-size: cover;
+    filter: grayscale();
+    position: fixed;
+    transition: all 0.5s;
+}
+/*.fixed_background.on {
+    background: rgba(0,0,0,0.5);
+}*/
+#contents {
+    width: 1600px;
+    margin: 0 auto;
+}
+.page {
+    position: relative;
+    z-index: 999;
+}
+.page > div {
+    float: left;
+}
+.page img {
+    display: block;
+    width: 520px;
+    height: 700px;
+    box-shadow: 30px 30px 30px rgba(0,0,0,0.3);
+}
+.text_box p {
+    display: block;
+    font-size: 18px;
+    line-height: 28px;
+    color: #fff;
+}
+#page0 img {
+    display: block;
+    width: 583px;
+    height: 149px;
+    padding-top: 700px;
+    float: right;
+    box-shadow: none;
+}
+#page0 .com {
+    display: block;
+    position: absolute;
+    bottom: -120px;
+    right: 0;
+    font-size: 24px;
+    color: #fff;
+}
+#page1 {
+    clear: both;
+    margin-top: 200px;
+    float: left;
+}
+#page1 .img_box {
+    position: relative;
+}
+#page1 .img_box img {
+    display: block;
+    width: 493px;
+    height: 662px;
+}
+#page1 .img_box .po11{
+    width: 450px;
+    height: 646px;
+    position: absolute;
+    top: 350px;
+    left: 1000px;
+} 
+#page1 .text_box {
+    margin-top: 300px;
+    margin-left: 100px;
+}
+.text_box .title {
+    font-family: 'mark_my_words';
+    font-size: 172px;
+    color: #fff;
+    position: absolute;
+}
+#page1 .text_box .title {
+    bottom: 0;
+    left: 400px;
+}
+#page2 {
+    clear: both;
+    float: right;
+    margin-top: 400px;
+}
+#page2 .text_box {
+    /*text-align: right;*/
+    margin-right: 100px;
+    margin-top: 500px;
+}
+#page2 .text_box .title {
+    right: 100px;
+    bottom: -50px;
+}
+#page2 img {
+    position: relative;
+    width: 700px;
+    height: 700px;
+    z-index: -1;
+    box-shadow: 30px 30px 30px rgba(0,0,0,0.3);
+}
+#page3 {
+    clear: both;
+    float: left;
+    margin-top: 400px;
+}
+#page3 img {
+    width: 600px;
+    height: 800px;
+}
+#page3 .text_box {
+    margin-left: 100px;
+    margin-top: 400px;
+}
+#page3 .text_box .title {
+    left: 200px;
+    bottom: -50px;
+}
+#page3 .text_box p:last-child {
+    margin-top: 150px;
+}
+#page4 {
+    clear: both;
+    float:right;
+    margin-top: 400px;
+}
+#page4 img {
+    position: relative;
+    z-index: -1;
+}
+#page4 .text_box {
+    margin-right: 100px;
+    margin-top: 400px;
+}
+#page4 .text_box .title {
+    right: 100px;
+    bottom: 0;
+}
+#page5 {
+    clear: both;
+    float: left;
+    margin-top: 400px;
+}
+#page5 .text_box {
+    margin-left: 100px;
+    margin-top: 400px;
+}
+#page5 .text_box .title {
+    right: 100px;
+    bottom: 0;
+}
+#page6 {
+    clear: both;
+    float:right;
+    margin-top: 200px;
+}
+#page7 {
+    clear: both;
+    float: left;
+    margin-top: 200px;
+}
+#page8 {
+    clear: both;
+    float:right;
+    margin-top: 200px;
+}
+#page9 {
+    clear: both;
+    float:left;
+    margin-top: 200px;
+}
+#ft {
+    clear: both;
+    position: relative;
+    width: 100%;
+    height: 200px;
+    padding-top: 400px;
+}
+#ft p {
+    display: block;
+    color: #fff;
+    font-size: 18px;
+    line-height: 28px;
+}
+.ft_wrap .ft_com {
+    margin-bottom: 50px;
+}
+.ft_wrap .ft_com .big {
+    font-size: 38px;
+}
+.ft_wrap .mail {
+    margin-bottom: 50px;
+}
+#ft i {
+    margin-right: 15px;
+}
